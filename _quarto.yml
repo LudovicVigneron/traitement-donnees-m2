@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Traitements avancés des données"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Accueil"
+      - text: "Séances"
+        menu:
+          - text: "Séance 1 : Fondations & Tidyverse"
+            href: seance1.qmd
+          - text: "Séance 2 : Cycles lunaires (Séries Temporelles)"
+            href: seance2.qmd
+          - text: "Séance 3 : Données de Panel (Modèle de Jones)"
+            href: seance3.qmd
+          - text: "Séance 4 : l'inférence causale (Diff-in-Diff)"
+            href: seance4.qmd
+      - text: "Compléments"
+        menu:
+          - text: "Installation"
+            href: inst.qmd
+            
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    toc: true

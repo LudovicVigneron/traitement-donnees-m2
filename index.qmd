@@ -1,0 +1,13 @@
+---
+title: "Cours_26_27"
+---
+
+This is a Quarto website.
+
+lala
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```

@@ -1,0 +1,6 @@
+---
+title: "Séance 4 : l'inférence causale (Diff-in-Diff)"
+author: "Ludovic Vigneron"
+---
+
+En construction...

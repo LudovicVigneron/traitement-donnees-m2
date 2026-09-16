@@ -1,0 +1,48 @@
+---
+title: "Séance 1 : Fondations & Tidyverse"
+author: "Ludovic Vigneron"
+---
+
+# Installation et configuration de l'environnement de travail
+
+# Bases du langage R
+
+[vidéo les bases du langage R](https://www.youtube.com/watch?v=hGffaVR4Dtk&t=292s)
+
+## les packages
+
+::: {#important}
+je ne comprend pas bien
+:::
+
+# Le tidyverse
+
+### la syntaxe dplyr
+
+### GGPLOT 2
+
+| your turn 1: réaliser un graphe
+
+::: {#mission .exercice style="color: red"}
+A vous de jouer
+:::
+
+::: callout-note
+## Exercice pratique
+
+À vous de jouer : chargez le fichier `data_lune.csv` et effectuez une jointure avec les données du S&P 500 à l'aide de la fonction `left_join()`.
+:::
+
+## Création de documents
+
+Nous travaillerons avec quarto
+
+# L'analyse de régression
+
+travail la régression linéaire
+
+## Les moindres carrés ordinaires
+
+la fonction lm()
+
+## Les modèles logit

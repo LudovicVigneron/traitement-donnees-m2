@@ -1,0 +1,6 @@
+---
+title: "Séance 3 : Données de Panel (Modèle de Jones)"
+author: "Ludovic Vigneron"
+---
+
+En construction...
