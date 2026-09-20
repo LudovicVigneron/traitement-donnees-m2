@@ -21,7 +21,7 @@ Sur la base du même type de mécanisme d'autres anomalies ont été documentée
 **Table 1 :** Typologie des anomalies de marché
 
 |  |  |  |  |  |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | **Catégorie** | **Anomalie** | **Papier(s) clé(s)** | **Mécanisme sous-jacent** | **Effet constaté sur les cours** |
 | **1. Calendaires** *(Lien au temps pur / structures de marché)* | **Effet Janvier** *(January Effect)* | @rozeff1976 ; @wachtel1942 | Optimisation fiscale en décembre (*tax-loss selling*) suivie de rachats en janvier, combinée aux flux de bonus de fin d'année. | Surperformance significative des actions (en particulier les petites capitalisations) au mois de janvier. |
 |  | **Effet Lundi / Jour de la semaine** *(Weekend Effect)* | @french1980 ; @gibbons1981 | Accumulation des mauvaises nouvelles pendant le *weekend*, biais de décision du lundi matin, fermeture/ouverture des carnets d'ordres. | Rendements moyens du lundi négatifs ou inférieurs aux autres jours de la semaine. |
@@ -1794,12 +1794,11 @@ car::vif(reg9)
 On obtient une table indiquant pour chaque variable le coefficient de multicolinéarité GVIF, les degrés de liberté de la variable et le coefficient ajusté pour en tenir compte. Ici, l'ensemble des coefficients sont proche de 1. Il n'y a donc pas de problème de multicolinéarité. Pour rappel, on commence à s'inquiéter au dessus de 5 (la situation est particulièrement grave au dessus de 10). Nous en somme loin (la valeur minimale est 1). Cela n'est pas particulièrement étonnant dans la mesure où aucun des coefficients n'est statistiquement significatif dans le modèle.
 
 ::: {.callout-note appearance="simple" icon="false" collapse="true"}
-## 📝 Tâche 19 : Répliquez l'analyse sur l'échantillon excluant les outliers.
+## 📝 Tâche 19 : Répliquez l'analyse sur l'échantillon en excluant les *outliers*.
 
-P.
+Pour ce faire, le plus simple est de reprendre le code précédent et d'ajouter un filtre, via la fonction **filter()**, sur la base traiter en retenant les limites fixées pour désigner les observations hors *outliers*. Celles-ci sont les mêmes que précédemment : moyenne des rendements moins trois écart-types des rendements et moyenne des rendements plus trois écart-types des rendements.
 
 ```{r}
-#| warning: false
 reg1<-lm(ret~prox_pl_lune, data=df_ |>
            filter(ret<mean(ret)+3*sd(ret)&ret>mean(ret)-3*sd(ret)))
 reg2<-lm(ret~jour, data=df_ |>
@@ -1826,11 +1825,15 @@ modelsummary::modelsummary(list(reg1,reg2,reg3,reg4,reg5,reg6,reg7,reg8,reg9),
 
 ```
 
-Voyons la multicolinéartié
+On notera que l'exclusion des *outliers* ne change rien à l'inférence. Les variables associées aux phénomènes testés demeurent statistiquement non significatifs. On peut néanmoins noter l'augmentation de la constante suite à l'exclusion des *outliers.* Cela montre simplement que ceux-ci étaient plus fréquemment des rendements négatifs importants.
+
+Avant de conclusion la tache, voyons la multicolinéarité dans régression complète. Encore un fois utilisons la fonction **vif()** du package *car*.
 
 ```{r}
 car::vif(reg9)
 ```
+
+Le diagnostique reste le même qui précédemment. Les vif reste très faible (proche de 1). Il n'y a pas de problèmes de multicolinéarité. Cela n'est pas très surprenant.
 :::
 
 A cette fin, le choix de ces vari

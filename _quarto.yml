@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Traitements avancés des données"
+  title: "Gestion et traitement avancés des données comptables"
   navbar:
     left:
       - href: index.qmd

@@ -2,12 +2,8 @@
 title: "Cours_26_27"
 ---
 
-This is a Quarto website.
+::: callout-note
+## 🚧 Cours en construction
 
-lala
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Ce support de cours est mis à jour régulièrement tout au long du semestre. Les chapitres et exercices seront publiés au fur et à mesure de notre progression.
+:::
