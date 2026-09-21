@@ -21,7 +21,7 @@ Sur la base du même type de mécanisme d'autres anomalies ont été documentée
 **Table 1 :** Typologie des anomalies de marché
 
 |  |  |  |  |  |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | **Catégorie** | **Anomalie** | **Papier(s) clé(s)** | **Mécanisme sous-jacent** | **Effet constaté sur les cours** |
 | **1. Calendaires** *(Lien au temps pur / structures de marché)* | **Effet Janvier** *(January Effect)* | @rozeff1976 ; @wachtel1942 | Optimisation fiscale en décembre (*tax-loss selling*) suivie de rachats en janvier, combinée aux flux de bonus de fin d'année. | Surperformance significative des actions (en particulier les petites capitalisations) au mois de janvier. |
 |  | **Effet Lundi / Jour de la semaine** *(Weekend Effect)* | @french1980 ; @gibbons1981 | Accumulation des mauvaises nouvelles pendant le *weekend*, biais de décision du lundi matin, fermeture/ouverture des carnets d'ordres. | Rendements moyens du lundi négatifs ou inférieurs aux autres jours de la semaine. |
@@ -166,7 +166,7 @@ $$P_{t_n}=P_0 \times (1+rd_1) \times (1+rd_2)...  \times (1+rd_{t_n})$$
 
 Les choses sont encore plus marquantes lorsqu'il s'agit d'opérer le même type de calculs à partir de rendements moyens. Pour les rendements continues, la moyenne arithmétique de ces mêmes rendements peut être mobilisée pour établir le prix à la date déterminée. On a ainsi :
 
-$$\bar{r}_A=\frac{1}{n}\sum_{t=1}^n (1+r_t)$$
+$$\bar{r}_A=\frac{1}{n}\sum_{t=1}^n r_t$$
 
 $$P_{t_n}=P_0\times e^{n.\bar{r}_A}$$
 
@@ -274,7 +274,7 @@ Veillons maintenant à positionner les jours de cotation vis-à-vis du cycle lun
 ```{r}
 duree_mois_lunaire <- 29.53059
 
-df<-df %>% mutate( 
+df<-df |> mutate( 
   # passer sur une échelle en jours
   jour_lunaire_continu = (lunar_rad / (2 * pi)) * duree_mois_lunaire +1,
   # On arrondit à l'entier inférieur pour avoir des "classes" de jours
